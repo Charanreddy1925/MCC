@@ -4,7 +4,18 @@ import pickle
 import streamlit as st
 
 # Load the trained SVC model
-with open("./svc_model.pkl", "rb") as f:
+import os
+
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Construct the absolute path to the file
+file_path = os.path.join(script_dir, "svc_model.pkl")
+
+# Open the file
+with open(file_path, "rb") as f:
+    # Your code to read the file
+    
     model = pickle.load(f)
 
 # Function to predict the cluster based on input features
