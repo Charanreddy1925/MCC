@@ -8,8 +8,15 @@ import pandas as pd
 from pickle import load
 
 # Load the trained SVC model
-with open("svc_model.pkl", "rb") as f:
-    model = pickle.load(f)
+try:
+    with open("svc_model.pkl", "rb") as f:
+        # Your code here
+except FileNotFoundError:
+    print("Error: File 'svc_model.pkl' not found.")
+except Exception as e:
+    print("Error:", e)
+
+
 
 # Function to predict the cluster based on input features
 def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
