@@ -3,9 +3,9 @@
 
 # In[1]:
 
-
-import pickle
 import streamlit as st
+import pandas as pd
+from pickle import load
 
 # Load the trained SVC model
 with open("svc_model.pkl", "rb") as f:
