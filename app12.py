@@ -4,9 +4,11 @@ import pickle
 import streamlit as st
 
 # Load the trained SVC model
-with open("./svc_model.pkl", "rb") as f:
-    model = pickle.load(f)
-
+try:
+    with open("./svc_model.pkl", "rb") as f:
+        model = pickle.load(f)
+except Exception as e:
+    st.error(f"Error loading the model: {e}")
 # Function to predict the cluster based on input features
 def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
                     TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For):
