@@ -7,8 +7,7 @@ import streamlit as st
 import pickle
 
 # Load the trained SVC model using relative file path
-file_path = "https://github.com/Charanreddy1925/MCC/blob/main/svc_model.pkl" # Update this with the correct relative file path
-
+file_path = "svc_model.pkl" # Update this with the correct relative file path
 try:
     with open(file_path, "rb") as f:
         # Proceed with loading the file
@@ -16,6 +15,7 @@ except FileNotFoundError:
     print(f"Error: File '{file_path}' not found.")
 except Exception as e:
     print(f"Error: {e}")
+
 
 
 
