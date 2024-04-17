@@ -2,10 +2,16 @@
 
 import pickle
 import streamlit as st
-import svc_model.pkl as m
+
 # Load the trained SVC model
-with open("svc_model.pkl", "rb") as f:
+import pickle
+
+# Load the trained SVC model using relative file path
+file_path = "path/to/your/C:\Users\CHARAN\Downloads\svc_model.pkl" # Update this with the correct relative file path
+with open(file_path, "rb") as f:
     model = pickle.load(f)
+
+
 
 # Function to predict the cluster based on input features
 def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
