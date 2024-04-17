@@ -3,7 +3,8 @@
 import pickle
 import streamlit as st
 from pathlib import Path
-
+import sklearn
+print(f"Scikit-learn version: {sklearn.__version__}")
 try:
     file_path = Path("svc_model.pkl")
     with file_path.open("rb") as f:
