@@ -11,6 +11,7 @@ file_path = "svc_model.pkl" # Update this with the correct relative file path
 try:
     with open(file_path, "rb") as f:
         # Proceed with loading the file
+        pass  # Placeholder for actual code
 except FileNotFoundError:
     print(f"Error: File '{file_path}' not found.")
 except Exception as e:
