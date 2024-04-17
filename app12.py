@@ -17,8 +17,10 @@ except pickle.UnpicklingError:
 def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
                     TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For):
     # Predict the cluster label using the trained model
-    prediction = model.predict([[Education, Marital_Status, Income, Kids, Expenses,
-                                  TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For]])
+                        
+    features = [Education, Marital_Status, Income, Kids, Expenses,
+                                  TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For] + [0] * 17
+    prediction = model.predict([features])
     return prediction
 
 # Main function to create the Streamlit app
