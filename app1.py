@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*
+pip install scikit-learn
 import os
 import pickle
 import streamlit as st
