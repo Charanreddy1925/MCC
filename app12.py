@@ -2,13 +2,16 @@
 
 import pickle
 import streamlit as st
+from pathlib import Path
 
-# Load the trained SVC model
 try:
-    with open("./svc_model.pkl", "rb") as f:
+    file_path = Path("svc_model.pkl")
+    with file_path.open("rb") as f:
         model = pickle.load(f)
-except Exception as e:
-    st.error(f"Error loading the model: {e}")
+except FileNotFoundError:
+    st.error("File not found: svc_model.pkl")
+except pickle.UnpicklingError:
+    st.error("Error unpickling the file: svc_model.pkl")
 # Function to predict the cluster based on input features
 def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
                     TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For):
