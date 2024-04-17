@@ -7,7 +7,7 @@ import streamlit as st
 import pickle
 
 # Load the trained SVC model using relative file path
-file_path = "r\C:\Users\CHARAN\Downloads\svc_model.pkl" # Update this with the correct relative file path
+file_path = r"C:\Users\CHARAN\Downloads\svc_model.pkl" # Update this with the correct relative file path
 with open(file_path, "rb") as f:
     model = pickle.load(f)
 
