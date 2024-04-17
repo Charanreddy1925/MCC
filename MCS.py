@@ -1,37 +1,13 @@
-#!/usr/bin/env python
-# coding: utf-8
+import pickle
 
-# In[1]:
+# Load the trained model
+with open("svc_model.pkl", "rb") as f:
+    model = pickle.load(f)
 
-import streamlit as st
-import pandas as pd
-from pickle import load
-
-# Load the trained SVC mo
-import os
-
-# Get the directory of the current script
-script_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Construct the absolute path to the file
-file_path = os.path.join(script_dir, "svc_model.pkl")
-
-# Open the file
-try:
-    with open(file_path, "rb") as f:
-        # Your code to read the file
-except FileNotFoundError:
-    print("File not found:", file_path)
-except Exception as e:
-    print("Error:", e)
-
-
-
-
-# Function to predict the cluster based on input features
+# Define the predict_cluster function
 def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
                     TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For):
-    # Predict the cluster label using the trained model
+    # Use the loaded model to make predictions
     prediction = model.predict([[Education, Marital_Status, Income, Kids, Expenses,
                                   TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For]])
     return prediction
@@ -68,8 +44,6 @@ def main():
 if __name__ == '__main__':
     main()
 
-
-# In[ ]:
 
 
 
