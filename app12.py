@@ -19,7 +19,7 @@ def predict_cluster(Education, Marital_Status, Income, Kids, Expenses,
     # Predict the cluster label using the trained model
                         
     features = [Education, Marital_Status, Income, Kids, Expenses,
-                                  TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For] + [0] * 17
+                                  TotalAcceptedCmp, NumTotalPurchases, Customer_Age, Customer_For] 
     prediction = model.predict([features])
     return prediction
 
